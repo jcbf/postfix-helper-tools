@@ -6,8 +6,6 @@ perl:
 before_install:
     - cpanm --notest Cache::FastMmap::Tie
 
-install:
-
 script:
    - cd deferrer
    - perl Makefile.PL
