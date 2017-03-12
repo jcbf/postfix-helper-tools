@@ -4,10 +4,9 @@ perl:
   - "5.16"
 
 before_install:
-    - cpanm Cache::FastMmap::Tie
+    - cpanm --notest Cache::FastMmap::Tie
 
 install:
-    - cpanm -v --installdeps --notest .
 
 script:
    - cd deferrer
