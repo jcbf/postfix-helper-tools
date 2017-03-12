@@ -10,6 +10,7 @@ install:
     - cpanm -v --installdeps --notest .
 
 script:
+   - cd deferrer
    - perl Makefile.PL
    - make test
 
