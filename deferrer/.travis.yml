@@ -1,0 +1,15 @@
+language: "perl"
+perl:
+  - "5.22"
+  - "5.16"
+
+before_install:
+    - cpanm Cache::FastMmap::Tie
+
+install:
+    - cpanm -v --installdeps --notest .
+
+script:
+   - perl Makefile.PL
+   - make test
+
