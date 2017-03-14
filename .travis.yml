@@ -5,11 +5,12 @@ perl:
 
 before_install:
     - cpanm --notest Cache::FastMmap::Tie
-
 install:
-   - cpanm Devel::Cover
+   - - cpanm --notest Devel::Cover Devel::Cover::Report::Coveralls Test::Script
 script:
    - cd deferrer
    - perl Makefile.PL
    - make test
-
+   - cover
+after_success:
+    - cover -report coveralls
