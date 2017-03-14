@@ -21,5 +21,5 @@ script:
    - make test
    - cover
 
-  after_success:
+after_success:
     - cover -report coveralls
