@@ -1,25 +1,15 @@
 language: "perl"
 perl:
-  - "5.18"
+  - "5.22"
   - "5.16"
 
 before_install:
-    - git clone git://github.com/haarg/perl-travis-helper
-    - source perl-travis-helper/init
-    - build-perl
-    - perl -V
-    - build-dist
-    - cd $BUILD_DIR
+    - cpanm --notest Cache::FastMmap::Tie
 
 install:
-    - cpanm --notest Cache::FastMmap::Tie Devel::Cover Devel::Cover::Report::Coveralls
-    - cpanm --quiet --notest --installdeps .
-
+   - cpanm Devel::Cover
 script:
    - cd deferrer
    - perl Makefile.PL
    - make test
-   - cover
 
-after_success:
-    - cover -report coveralls
