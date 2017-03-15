@@ -1,6 +1,6 @@
 language: "perl"
 perl:
-  - "5.22"
+  - "5.20"
   - "5.16"
 
 before_install:
@@ -11,6 +11,6 @@ script:
    - cd deferrer
    - perl Makefile.PL
    - make test
-   - cover
-after_success:
-    - cover -report coveralls
+#   - cover
+#after_success:
+#    - cover -report coveralls
