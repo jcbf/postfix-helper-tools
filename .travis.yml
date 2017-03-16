@@ -1,16 +1,15 @@
-language: "perl"
+language: perl
 perl:
-  - "5.20"
-  - "5.16"
-
+- '5.20'
+- '5.16'
 before_install:
-    - cpanm --notest Cache::FastMmap::Tie
+- cpanm --notest Cache::FastMmap::Tie
 install:
-    - cpanm --notest Devel::Cover Devel::Cover::Report::Coveralls Test::Script
+- cpanm --notest Devel::Cover Devel::Cover::Report::Coveralls Test::Script
 script:
-   - cd deferrer
-   - perl Makefile.PL
-   - make test
-#   - cover
-#after_success:
-#    - cover -report coveralls
+- cd deferrer
+- perl Makefile.PL
+- make test
+notifications:
+  slack:
+    secure: htJ+R0TzlcnXNVMi6sD6+FZVaj+aj1/KNLzyAbw8w+wsaIDD0fESukRCbjSCHcLJSecKnOsXT22WkRm7R2P/lGpgMwWH0EwyGw7TEAzMLcxFK9NvRZ51FHqPR9nuNDYHKLh0Atf2YECEqbYHbToLgNhvDbLyYIkFsCufMrDuGYgtK1Z1UtGJrl29wPmOIH9+GjRtd0RQr5rVEZplDIlZC6UVzLIDRxaRtIUhjt4JG56YVQDO5iJJbvU6SZ0d7cjSqAd1Tchi3vMtn3U5uUL0NN+8AI98vXW0cowTlwpTI68+i6w/zUfuXQL9y2uFt2CNPkIyQdvAmY+4oGsxkvDeI2u0XMSo7Smk3C/frM45UVpj5iQNWFc41vWLaVt0melrpbyKQ/0ql7otZjHY8AKkHnL3SG0lXpI9Pn+LFUrhgC/ixLi4CI1w2rZT5095MUPABHbLq+QlKkPVXWxqWTL64c1RGpcjz/GzZvhOL0pxyqpQWC+vlNT3zKfUGcf1xJznMxyltc6j1PhcSW2MQgivtvfm1xYbPZ4eNuPSBbwTrX2OR4ZA6iZ0bBbjfzrLeYi5vQNdwHK640QebVbaM/2aB9jYSsKipHtv0fACi05A+XA3UyBRXVcle2Kpiii/CelQfg6HpGRO3bzvWbfVX5QduWwA+FzoUvhsrK19/3auSm4=
